@@ -1,17 +1,31 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const complementMap = new Map();
+  for (const num of array) {
+    const complement = target - num;
+    if (complementMap.has(num)) {
+      return true;
+    }
+    complementMap.set(complement, true);
+  }
+  return false;
+
 }
 
 /* 
   Write the Big O time complexity of your function here
+  the time complexity of the hasTargetSum function is 0(n),where n is the length of the 
+  array.Since we iterate over the array only once and perform constant-time operations on the hash table
 */
 
 /* 
   Add your pseudocode here
+  use a method to check whether two numbers in the array equal the target 
 */
 
 /*
   Add written explanation of your solution here
+   It uses a hash table (implemented as a Map object) to store the complements of the numbers seen so far, and checks if the current number is already in the map.
 */
 
 // You can run `node index.js` to view these console logs
